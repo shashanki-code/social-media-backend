@@ -31,7 +31,9 @@ app.use(
   "/api/posts",
   require("./routes/post.routes")
 );
-
+app.get("/", (req, res) => {
+  res.send("Backend is running successfully");
+});
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
