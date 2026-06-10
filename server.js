@@ -35,8 +35,11 @@ app.use(
   require("./routes/post.routes")
 );
 app.get("/", (req, res) => {
-  res.send("Backend is running successfully");
+  res.json({ status: "ok", message: "Backend is running successfully" });
 });
+
+// Simple health check for Render or other platforms
+app.get('/health', (req, res) => res.sendStatus(200));
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
