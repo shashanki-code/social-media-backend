@@ -28,6 +28,8 @@ const upload = multer({
   storage,
 });
 
+router.post("/", createPost);
+
 router.post(
   "/create",
   upload.single("image"),

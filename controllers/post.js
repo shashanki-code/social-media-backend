@@ -2,7 +2,7 @@ const Post = require("../models/Post");
 
 exports.createPost = async (req, res) => {
   try {
-    const { userId, caption } = req.body;
+    const { userId, caption, text } = req.body;
 
     let image = "";
 
@@ -12,7 +12,7 @@ exports.createPost = async (req, res) => {
 
     const post = await Post.create({
       user: userId,
-      caption,
+      caption: caption || text,
       image,
     });
 
